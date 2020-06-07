@@ -1,0 +1,8 @@
+{% block content %}
+{{ all_post }}
+
+{%for instance in all_post %}
+    <p>{{instance.content}}-{{instance.time}}</p>
+{% endfor %}
+
+{% endblock %}
