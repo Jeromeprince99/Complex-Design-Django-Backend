@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ycdt9gz8b4y5ea^p(0tt(o4x3)2m1ldile-zwriu^zk6g#cr+*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['complex-design-django.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 APPEND_SLASH = False
 
@@ -77,6 +77,16 @@ TEMPLATES = [
         },
     },
 ]
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('localhost', 6379)],
+        },
+    },
+}
 
 WSGI_APPLICATION = 'Backend.wsgi.application'
 
