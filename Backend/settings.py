@@ -25,7 +25,7 @@ SECRET_KEY = 'ycdt9gz8b4y5ea^p(0tt(o4x3)2m1ldile-zwriu^zk6g#cr+*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['complex-design-django.herokuapp.com']
 
 APPEND_SLASH = False
 
