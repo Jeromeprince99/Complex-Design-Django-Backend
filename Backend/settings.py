@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'complex_design_backend',
     'corsheaders',
     'complex_design_backend_rest_api',
-    'django_cleanup'    
+    'gunicorn',
+    'django_cleanup' 
 ]
 
 MIDDLEWARE = [
