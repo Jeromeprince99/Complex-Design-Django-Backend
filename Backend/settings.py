@@ -76,7 +76,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+] 
 
 
 CHANNEL_LAYERS = {
