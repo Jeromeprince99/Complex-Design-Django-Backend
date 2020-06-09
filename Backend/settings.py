@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ycdt9gz8b4y5ea^p(0tt(o4x3)2m1ldile-zwriu^zk6g#cr+*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -78,12 +78,12 @@ TEMPLATES = [
     },
 ] 
 
-
+'''
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
-}
+}'''
 
 WSGI_APPLICATION = 'Backend.wsgi.application'
 
@@ -124,7 +124,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 )'''
 
 MEDIA_URL =  '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,  'images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
 DATE_INPUT_FORMATS = ['%Y-%m-%d %H-%M'] 
 
