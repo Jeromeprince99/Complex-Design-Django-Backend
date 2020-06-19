@@ -134,24 +134,17 @@ USE_TZ = True
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# Important => For local development and serving - this sqlite3 db should be used, for which you have to 
-# first uncomment below lines and then run make migrations and migrate(to create db.sqlite3 file) 
-# before running the server locally
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
 
 # Important => For production and pushing to heroku - this postgresql db should be used, for which you have to 
-# first delete db.sqlite3 file and uncomment below lines and then run make migrations and migrate(to create postgresql db) 
-# before pushing to production
+# uncomment below lines and then run make migrations and migrate in heroku terminal by using cmd 'heroku run cmd' 
+# after pushing to production
 
 import dj_database_url
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': dj_database_url.config(default='postgres://postgresql-curved-23391'),
-    }
-}
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
