@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'rest_framework',
     'channels',
     'complex_design_backend',
@@ -135,6 +134,8 @@ USE_TZ = True
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# Important => For local development and serving - this sqlite3 db should be used, which should be uncommented
+# before running the server locally
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -142,6 +143,8 @@ DATABASES = {
     }
 }
 
+# Important => For production and pushing to heroku - this postgresql db should be used, which should be 
+# uncommented before pushing to production
 '''
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
