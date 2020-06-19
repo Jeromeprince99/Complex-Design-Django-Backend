@@ -134,7 +134,8 @@ USE_TZ = True
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# Important => For local development and serving - this sqlite3 db should be used, which should be uncommented
+# Important => For local development and serving - this sqlite3 db should be used, for which you have to 
+# first uncomment below lines and then run make migrations and migrate(to create db.sqlite3 file) 
 # before running the server locally
 '''DATABASES = {
     'default': {
@@ -143,8 +144,10 @@ USE_TZ = True
     }
 }'''
 
-# Important => For production and pushing to heroku - this postgresql db should be used, which should be 
-# uncommented before pushing to production
+# Important => For production and pushing to heroku - this postgresql db should be used, for which you have to 
+# first delete db.sqlite3 file and uncomment below lines and then run make migrations and migrate(to create postgresql db) 
+# before pushing to production
 
 import dj_database_url
-DATABASES = { 'default': dj_database_url.config(conn_max_age=600, ssl_require=True) }
+DATABASES = { 'default': dj_database_url.parse('postgres://...', conn_max_age=600) }
+
