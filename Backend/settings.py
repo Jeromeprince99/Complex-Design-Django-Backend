@@ -150,7 +150,7 @@ DATABASES = {
 # after pushing to production
 
 if ON_HEROKU:
-    DATABASE_URL = 'postgresql://<postgresql>'
+    DATABASE_URL = 'postgresql://postgresql-curved-23391'
 else:
     DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
