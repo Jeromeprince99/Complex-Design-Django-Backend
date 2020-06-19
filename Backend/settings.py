@@ -149,8 +149,9 @@ USE_TZ = True
 # before pushing to production
 
 import dj_database_url
-
 DATABASES = {
-    'default' : dj_database_url.config(conn_max_age=600)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': dj_database_url.config(default='postgres://postgresql-curved-23391'),
+    }
 }
-
