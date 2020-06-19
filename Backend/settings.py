@@ -151,9 +151,6 @@ DATABASES = {
 
 
 
-if ON_HEROKU:
-    DATABASE_URL = os.environ.get('HEROKU_POSTGRESQL_IVORY_URL')
-else:
-    DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASE_URL = os.environ.get('HEROKU_POSTGRESQL_IVORY_URL')
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
