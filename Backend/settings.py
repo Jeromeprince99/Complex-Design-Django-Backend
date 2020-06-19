@@ -144,7 +144,4 @@ if os.path.isfile(dotenv_file):
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-# This should already be in your settings.py
 django_heroku.settings(locals())
-# This is new
-del DATABASES['default']['OPTIONS']['sslmode']
