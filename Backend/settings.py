@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import dj_database_url
+import dotenv
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -132,25 +134,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-ON_HEROKU = os.environ.get('ON_HEROKU')
-HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}'''
 
-# Important => For production and pushing to heroku - this postgresql db should be used, for which you have to 
-# uncomment below lines and then run make migrations and migrate in heroku terminal by using cmd 'heroku run cmd' 
-# after pushing to production
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-
-DATABASE_URL = os.environ.get('HEROKU_POSTGRESQL_IVORY_URL')
-
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+# This should already be in your settings.py
+django_heroku.settings(locals())
+# This is new
+del DATABASES['default']['OPTIONS']['sslmode']

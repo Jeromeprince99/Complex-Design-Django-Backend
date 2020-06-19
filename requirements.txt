@@ -54,6 +54,7 @@ pycparser==2.20
 PyHamcrest==2.0.2
 pylint==2.4.4
 pyOpenSSL==19.1.0
+python-dotenv==0.13.0
 pytz==2019.3
 query-string==2019.4.13
 redis==2.10.6
