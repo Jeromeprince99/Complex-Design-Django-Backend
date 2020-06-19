@@ -149,8 +149,10 @@ DATABASES = {
 # uncomment below lines and then run make migrations and migrate in heroku terminal by using cmd 'heroku run cmd' 
 # after pushing to production
 
+
+
 if ON_HEROKU:
-    DATABASE_URL = 'postgresql://postgresql-curved-23391'
+    DATABASE_URL = os.environ.get('HEROKU_POSTGRESQL_IVORY_URL')
 else:
     DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
